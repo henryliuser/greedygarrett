@@ -6,6 +6,7 @@
 
 [node name="Quarter" type="Sprite"]
 modulate = Color( 0.870588, 0.94902, 0.952941, 1 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

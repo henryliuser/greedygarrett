@@ -8,7 +8,7 @@ var initialSpeed = Vector2(randi()%100 - randi()%100, randi()%100 - randi()%100)
 
 func _ready():
 	randomize()
-	velocity = initialSpeed
+	velocity = initialSpeed * 150
 
 func _physics_process(delta):
 	if(counter > 40):
@@ -16,8 +16,9 @@ func _physics_process(delta):
 		parent.global_position += direction * delta * 100
 	else:
 		counter+=1
-		var direction = initialSpeed.normalized()
-		parent.global_position += lerp(1000*direction * delta, delta * direction*100, 0.7)
+		var direction = velocity.normalized()
+		velocity = lerp(velocity, delta*direction*100, 0.3)
+		parent.global_position += velocity * delta
 
 
 func _on_Area2D_body_entered(body):

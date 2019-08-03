@@ -1,3 +1,3 @@
 extends Sprite
 
-onready var denom = 10
+onready var denom = 0.10
