@@ -1,6 +1,6 @@
 extends Area2D
 var velocity = Vector2()
-var damage = 1
+var damage = 34
 
 func isProjectile():
 	pass
