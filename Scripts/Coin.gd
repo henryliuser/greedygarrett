@@ -1,13 +1,14 @@
 extends Area2D
 
 onready var parent = get_parent()
-onready var target = get_node("res://Objects/Player.tscn")
+onready var target = parent.get_parent().get_node("Player")
 
-func _process(delta):
-	var direction = (target.global_position - global_position).normalized()
-	parent.move_and_slide(direction)
+func _physics_process(delta):
+	var direction = (target.global_position - self.global_position).normalized()
+	parent.position += direction * delta * 100
 
 
 func _on_Area2D_body_entered(body):
 	if body.has_method("isPlayer"):
-		pass #implement coin disappearance and player cash added
+		body.getMoney(parent.denom)
+		parent.queue_free()

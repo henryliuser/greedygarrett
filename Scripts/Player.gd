@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var hp = 100
+var money = 0
 var velocity = Vector2()
 var movementSpeed = 1000
 
@@ -47,7 +48,19 @@ func calculateRotation():
 func getHit(dmg):
 	hp -= dmg
 	if hp <= 0:
+<<<<<<< HEAD
 		Global.gameOver()
+=======
+		die()
+
+func die():
+	Global.gameOver()
+>>>>>>> 008dc90da17d6d8a162d2212a9976b1c60082e01
 	
 	
 	
+func getMoney(denom):
+	money += denom
+	while money > 99:
+		money -= 100
+		hp -= 5
