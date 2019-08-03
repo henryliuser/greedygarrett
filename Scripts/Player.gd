@@ -48,14 +48,7 @@ func calculateRotation():
 func getHit(dmg):
 	hp -= dmg
 	if hp <= 0:
-<<<<<<< HEAD
 		Global.gameOver()
-=======
-		die()
-
-func die():
-	Global.gameOver()
->>>>>>> 008dc90da17d6d8a162d2212a9976b1c60082e01
 	
 	
 	

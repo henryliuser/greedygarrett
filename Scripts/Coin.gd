@@ -5,7 +5,7 @@ onready var target = parent.get_parent().get_node("Player")
 
 func _physics_process(delta):
 	var direction = (target.global_position - self.global_position).normalized()
-	parent.position += direction * delta * 100
+	parent.global_position += direction * delta * 100
 
 
 func _on_Area2D_body_entered(body):

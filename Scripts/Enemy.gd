@@ -25,18 +25,20 @@ func move():
 			targetPos = target.global_position
 		
 
-func getHurt(body):
-	if body.has_method("isProjectile"):
-		if body.damage > 0:
-			health -= body.damage
-		parent.velocity = body.velocity
 
 func _process(delta):
 	move()
 
 
-func _on_hitbox_body_entered(body):
-	getHurt(body)
+func _on_hitbox_area_entered(body):
+	print("suh")
+	if body.has_method("isProjectile"):
+		if body.damage > 0:
+			health -= body.damage
+			if health <= 0:
+				parent.queue_free()
+		parent.move_and_slide(body.velocity*0.5)
+		body.queue_free()
 
 
 func _on_hitbox_body_exited(body):

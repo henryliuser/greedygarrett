@@ -11,4 +11,5 @@ script = ExtResource( 1 )
 editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.858824, 0.0901961, 0.0901961, 1 )
 texture = ExtResource( 3 )
