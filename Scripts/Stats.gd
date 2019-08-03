@@ -13,7 +13,7 @@ func addFunds(add):
 	money += add
 	if money > 1.00:
 		money -= 1.0
-		subtractHealth(money*100)
+		subtractHealth(15)
 	formatCash()
 
 func subtractFunds(sub):
