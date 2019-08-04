@@ -8,8 +8,8 @@ func _ready():
 
 func _process(delta):
 	counter += 1
-	collShape.shape.radius = counter * (30.0/9)
-	if counter > 90:
+	collShape.shape.radius = counter * (30.0/3)
+	if counter > 30:
 		queue_free()
 
 

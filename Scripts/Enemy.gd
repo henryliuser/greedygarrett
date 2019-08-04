@@ -65,8 +65,9 @@ func getHurt(dmg, velocity):
 	parent.move_and_slide(velocity)
 
 
-func _on_hitbox_body_exited(body):
-	pass # Replace with function body.
+func _on_hitbox_body_entered(body):
+	if body.has_method("isPlayer"):
+		body.getHit(10)
 
 
 func _on_playerDetector_body_entered(body):

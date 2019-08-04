@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Knife.gd" type="Script" id=1]
+[ext_resource path="res://white.png" type="Texture" id=2]
+
+[node name="Knife" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="white" type="Sprite" parent="."]
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
+position = Vector2( 0.218475, 5.3032 )
+scale = Vector2( 0.987876, 1.22096 )
+texture = ExtResource( 2 )
+
+[node name="white3" type="Sprite" parent="."]
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
+position = Vector2( 0.218475, -14.1608 )
+rotation = 0.785398
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="white2" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0.218475, 58.14 )
+scale = Vector2( 1, 2.25944 )
+texture = ExtResource( 2 )
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2( 0.218475, 94.0152 )
+
+[node name="hitbox" type="CollisionPolygon2D" parent="hitbox"]
+position = Vector2( -1.36603, -87.9541 )
+polygon = PoolVector2Array( 17.213, 15.5783, 17.2657, -20.1094, 1.3543, -35.5192, -14.1988, -20.3961, -14.4138, 15.4404 )
+disabled = true
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

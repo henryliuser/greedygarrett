@@ -20,6 +20,6 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Weapons" type="Node2D" parent="."]
-position = Vector2( 97.6069, -46.3633 )
+position = Vector2( 101.31, -46.3633 )
 
 [node name="Bazooka" parent="Weapons" instance=ExtResource( 3 )]

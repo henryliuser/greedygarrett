@@ -2,6 +2,12 @@ extends Control
 var health
 var money
 
+var hurtColor = Color(0.5, 0, 1, 0.5)
+
+func _process(delta):
+	if Input.is_action_just_pressed("esc"):
+		get_tree().quit()
+
 static func lerp_angle(from, to, weight):
     return from + short_angle_dist(from, to) * weight
 
