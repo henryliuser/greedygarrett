@@ -7,6 +7,10 @@ onready var target = $target
 var targetPos
 var coins = ["res://Objects/Penny.tscn","res://Objects/Nickel.tscn","res://Objects/Dime.tscn","res://Objects/Quarter.tscn"]
 
+#hitstun
+const stun = 18
+var hitstun = 0
+
 func _ready():
 	target.global_position = Vector2(randi()%1600, randi()%900)
 	targetPos = target.global_position
@@ -28,14 +32,23 @@ func move():
 		
 
 
-func _process(delta):
-	move()
+func _physics_process(delta):
+	if hitstun != 0:
+		calculateHitstun()
+	else:
+		move()
 
+func calculateHitstun():
+	hitstun += 1
+	if hitstun >= stun:
+		hitstun = 0
+	
 
 func _on_hitbox_area_entered(body):
 	if body.has_method("isProjectile"):
 		if body.damage > 0:
 			health -= body.damage
+			hitstun = 1
 			if health <= 0:
 				parent.queue_free()
 				coinExplode()
