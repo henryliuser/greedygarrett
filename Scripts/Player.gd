@@ -3,12 +3,20 @@ extends KinematicBody2D
 var velocity = Vector2()
 var movementSpeed = 1000
 
+var hitstun = 0
+const stun = 18
+var hitVelo = Vector2()
+
 func isPlayer(): #ignore this
 	pass		#but it's important, henry
 
 func _physics_process(delta):
-	calculateMovement()
-	calculateRotation()
+	if hitstun != 0:
+		calculateHitstun()
+	else:
+		modulate = Color(1,1,1,1)
+		calculateMovement()
+		calculateRotation()
 	
 func calculateMovement():
 	var movement = Vector2()
@@ -43,8 +51,19 @@ func calculateRotation():
 	if abs(rotation_degrees-thetaDeg) <= 1:
 		rotation_degrees = thetaDeg
 	
-func getHit(dmg):
+func getHit(dmg, velocity):
 	Stats.subtractHealth(dmg)
+	hitstun = 1
+	hitVelo = velocity
+	
+func calculateHitstun():
+	modulate = Global.hurtColor
+	hitstun += 1
+	hitVelo = lerp(hitVelo, Vector2(0,0), 0.3)
+	if hitstun <= 10:
+		move_and_slide(hitVelo)
+	if hitstun >= stun:
+		hitstun = 0
 	
 func getMoney(denom):
 	Stats.addFunds(denom)

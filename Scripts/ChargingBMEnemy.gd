@@ -7,6 +7,10 @@ export var health = 100
 var counter = 0
 var coins = ["res://Objects/Penny.tscn","res://Objects/Nickel.tscn","res://Objects/Dime.tscn","res://Objects/Quarter.tscn"]
 
+const stun = 18
+var hitstun = 0
+var hitVelo = Vector2()
+
 func isEnemy():
 	pass
 
@@ -20,19 +24,32 @@ func move(delta):
 	else:
 		parent.global_position += (targetPos - self.global_position).normalized() * delta * 1200
 
+func calculateHitstun():
+	hitstun += 1
+	hitVelo = lerp(hitVelo, Vector2(0,0), 0.3)
+	if hitstun <= 10:
+		parent.move_and_slide(hitVelo)
+	if hitstun >= stun:
+		hitstun = 0
+
 
 func _physics_process(delta):
-	move(delta)
+	if hitstun != 0:
+		calculateHitstun()
+	else:
+		move(delta)
 
 
 func _on_hitbox_area_entered(body):
 	if body.has_method("isProjectile"):
 		if body.damage > 0:
 			health -= body.damage
+			hitstun = 1
 			if health <= 0:
 				parent.queue_free()
 				coinExplode()
-		parent.move_and_slide(body.velocity*0.5)
+		hitVelo = body.velocity/2
+		parent.move_and_slide(body.velocity/2)
 		body.queue_free()
 
 func coinExplode():
@@ -52,10 +69,12 @@ func coinExplode():
 
 func getHurt(dmg, velocity):
 	health -= dmg
+	hitstun = 1
 	if health <= 0:
 		parent.queue_free()
 		coinExplode()
 	parent.move_and_slide(velocity)
+	hitVelo = velocity
 
 
 func _on_hitbox_body_exited(body):

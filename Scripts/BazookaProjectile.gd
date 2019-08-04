@@ -15,7 +15,7 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_BazookaProjectile_body_entered(body):
-	var explosion = load("res://Objects/Explosion.tscn").instance()
+	var explosion = load("res://Objects/Explosion2.tscn").instance()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
 	queue_free()

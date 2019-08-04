@@ -1,6 +1,6 @@
 extends Area2D
 var velocity = Vector2()
-var damage = 10
+var damage = 15
 var lifespan = 10
 var counter = 0
 

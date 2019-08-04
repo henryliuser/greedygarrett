@@ -2,7 +2,7 @@ extends Control
 var health
 var money
 
-var hurtColor = Color(0.5, 0, 1, 0.5)
+var hurtColor = Color(1,0,0,0.6)
 
 func _process(delta):
 	if Input.is_action_just_pressed("esc"):
