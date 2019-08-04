@@ -21,7 +21,7 @@ func subtractFunds(sub):
 	formatCash()
 
 func formatCash():
-	cash.text = "$%.2f"%money
+	cash.text = "$%.2f" % money
 
 func addHealth(dmg):
 	health += dmg

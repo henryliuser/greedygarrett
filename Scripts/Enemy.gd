@@ -33,7 +33,6 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(body):
-	print("suh")
 	if body.has_method("isProjectile"):
 		if body.damage > 0:
 			health -= body.damage

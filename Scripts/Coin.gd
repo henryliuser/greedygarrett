@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	if(counter > 40):
 		var direction = (target.global_position - self.global_position).normalized()
-		parent.global_position += direction * delta * 100
+		parent.global_position += direction * delta * 90
 	else:
 		counter+=1
 		var direction = velocity.normalized()
