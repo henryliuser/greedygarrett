@@ -21,7 +21,7 @@ texture = ExtResource( 2 )
 
 [node name="icon3" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -3.05176e-05, -129.113 )
+position = Vector2( -3.05176e-005, -129.113 )
 scale = Vector2( 0.201028, 0.931999 )
 texture = ExtResource( 2 )
 
