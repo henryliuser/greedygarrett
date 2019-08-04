@@ -1,6 +1,10 @@
 extends Node2D
 var weapons = get_children()
 var currentWeapon = 0
+
+func _ready():
+	weapons[0].current = true
+
 func _physics_process(delta):
 	weapons = get_children()
 	if Input.is_action_just_pressed("switch"):
