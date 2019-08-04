@@ -1,4 +1,9 @@
 extends Node2D
+onready var player= $Player
+
+func _process(delta):
+	if player.position.y >= 1080:
+		get_tree().change_scene("res://Levels/henryTest.tscn")
 
 func _on_Pistol_body_entered(body):
 	if Stats.money >= 0.1:

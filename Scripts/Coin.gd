@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var parent = get_parent()
-onready var target = parent.get_parent().get_node("Player")
+onready var target = parent.get_parent().get_parent().get_node("Player")
 var velocity = Vector2()
 var counter = 0
 var initialSpeed = Vector2(randi()%100 - randi()%100, randi()%100 - randi()%100)
@@ -12,7 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	if(counter > 40):
-		var direction = (target.global_position - self.global_position).normalized()
+		var direction = (target.global_position - global_position).normalized()
 		parent.global_position += direction * delta * 90
 	else:
 		counter+=1
