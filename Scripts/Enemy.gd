@@ -38,21 +38,31 @@ func _on_hitbox_area_entered(body):
 			health -= body.damage
 			if health <= 0:
 				parent.queue_free()
-				for i in range(0,randi()%5+1):
-					var x = randi()%100
-					var coin
-					if x < 50:
-						coin = load(coins[0]).instance()
-					elif x < 80:
-						coin = load(coins[1]).instance()
-					elif x < 95:
-						coin = load(coins[2]).instance()
-					else:
-						coin = load(coins[3]).instance()
-					coin.global_position = global_position
-					parent.get_parent().add_child(coin)
+				coinExplode()
 		parent.move_and_slide(body.velocity*0.5)
 		body.queue_free()
+
+func coinExplode():
+	for i in range(0,randi()%5+1):
+		var x = randi()%100
+		var coin
+		if x < 50:
+			coin = load(coins[0]).instance()
+		elif x < 80:
+			coin = load(coins[1]).instance()
+		elif x < 95:
+			coin = load(coins[2]).instance()
+		else:
+			coin = load(coins[3]).instance()
+		coin.global_position = global_position
+		parent.get_parent().add_child(coin)
+
+func getHurt(dmg, velocity):
+	health -= dmg
+	if health <= 0:
+		parent.queue_free()
+		coinExplode()
+	parent.move_and_slide(velocity)
 
 
 func _on_hitbox_body_exited(body):

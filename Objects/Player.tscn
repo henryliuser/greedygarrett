@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Objects/Pistol.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Sniper.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
@@ -22,4 +22,4 @@ shape = SubResource( 1 )
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2( 97.6069, -46.3633 )
 
-[node name="Pistol" parent="Weapons" instance=ExtResource( 3 )]
+[node name="Sniper" parent="Weapons" instance=ExtResource( 3 )]
