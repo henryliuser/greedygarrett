@@ -5,12 +5,12 @@ onready var open = $opening
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
-		if Stats.bullets > 0:
+		if Stats.ammunition[1] > 0:
 			shoot()
 		
 
 func shoot(): #SCREENSHAKE
-	Stats.bullets -= 1
+	Stats.updateAmmo(0)
 	position.y += 16
 	var bull = load("res://Objects/Projectile.tscn").instance()
 	var rot = get_parent().get_parent().rotation - PI/2

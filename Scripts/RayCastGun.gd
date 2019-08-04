@@ -17,11 +17,11 @@ func _physics_process(delta):
 			cdTimer = 0
 			onCooldown = false
 	elif Input.is_action_just_pressed("shoot") and not onCooldown:
-		if Stats.rays > 0:
+		if Stats.ammunition[1] > 0:
 			shoot()
 
 func shoot():
-	Stats.rays -= 1
+	Stats.updateAmmo(1)
 	onCooldown = true
 	var x = player.rotation-PI/2
 	player.position -= Vector2(cos(x),sin(x))*40
