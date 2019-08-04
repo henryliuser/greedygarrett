@@ -66,6 +66,7 @@ func calculateHitstun():
 		hitstun = 0
 	
 func getMoney(denom):
+	$AudioStreamPlayer2D.play()
 	Stats.addFunds(denom)
 
 func getSpeed(speed):

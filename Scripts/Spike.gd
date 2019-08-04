@@ -18,7 +18,7 @@ func hurtPlayer():
 	if playerInRange:
 		counter += 1
 		if counter >= 10:
-			player.getHit(damage)
+			player.getHit(damage, Vector2())
 			counter = 0
 	else:
 		counter = 9

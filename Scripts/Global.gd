@@ -1,6 +1,7 @@
 extends Control
 var health
 var money
+var numCharging = 0
 
 var hurtColor = Color(1,0,0,0.6)
 

@@ -71,6 +71,8 @@ func getHurt(dmg, velocity):
 	health -= dmg
 	hitstun = 1
 	if health <= 0:
+		if Global.numCharging > 0:
+			Global.numCharging -= 1
 		parent.queue_free()
 		coinExplode()
 	parent.move_and_slide(velocity)
