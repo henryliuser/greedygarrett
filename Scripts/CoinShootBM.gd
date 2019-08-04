@@ -1,11 +1,11 @@
 extends KinematicBody2D
-
+var playerPos
 var speed = 200
 var cooldown = 90 #in frames
 var currCooldown = 0
 
 func calculateRotation():
-	var playerPos = get_parent().get_node("Player").global_position
+	playerPos = get_parent().get_parent().get_node("Player").global_position
 	var dx = playerPos.x - position.x
 	var dy = playerPos.y - position.y
 	var thetaRad = atan2(dy,dx) + PI/2
@@ -22,7 +22,7 @@ func shootCoin():
 		currCooldown = 0;
 		var projectileCoin = load("res://Objects/ProjectileCoin.tscn").instance()
 		projectileCoin.global_position = global_position
-		get_parent().add_child(projectileCoin)
+		get_parent().get_parent().add_child(projectileCoin)
 
 func _physics_process(delta):
 	calculateRotation()

@@ -1,7 +1,59 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menus/Main Menu.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/joystix monospace copy.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.25, 0.5, 0.75 )
+colors = PoolColorArray( 0.745098, 0.160784, 0.160784, 1, 0.156863, 0.192157, 0.988235, 1, 0.0235294, 0.992157, 0.0627451, 1, 0.138885, 0.300022, 0.86345, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1920
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 2 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -2.99915
 margin_right = -2.99915
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+margin_left = 141.25
+margin_top = 75.0758
+margin_right = 1939.25
+margin_bottom = 1029.08
+custom_fonts/font = SubResource( 3 )
+text = "hi, wasd to move
+q to switch guns
+click to shoot
+walk over shop 
+tiles to buy ammo
+press escape to rage quit
+press space to start
+
+YOU CAn hold 
+only one
+dollar at a time dont be greedy"
+
+[node name="Label2" type="Label" parent="TextureRect"]
+margin_left = 35.1021
+margin_top = 15.0438
+margin_right = 1110.1
+margin_bottom = 51.0438
+custom_fonts/font = SubResource( 4 )
+text = "nidhir guggilla, henry liu, esha dadbhawala"

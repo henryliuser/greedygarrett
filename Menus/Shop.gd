@@ -41,9 +41,11 @@ func _on_HP_body_entered(body):
 	if Stats.money >= 0.4:
 		Stats.addArmor(40)
 		Stats.money -= 0.4
+		Stats.formatCash()
 
 
 func _on_ARMOUR_body_entered(body):
 	if Stats.money >= 0.4:
 		Stats.addHealth(40)
 		Stats.money -= 0.4
+		Stats.formatCash()

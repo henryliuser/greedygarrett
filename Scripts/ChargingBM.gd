@@ -3,7 +3,7 @@ extends KinematicBody2D
 var speed = 200
 
 func calculateRotation():
-	var playerPos = get_parent().get_node("Player").global_position
+	var playerPos = get_parent().get_parent().get_node("Player").global_position
 	var dx = playerPos.x - position.x
 	var dy = playerPos.y - position.y
 	var thetaRad = atan2(dy,dx) + PI/2

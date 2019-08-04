@@ -22,7 +22,7 @@ func shootCoin():
 	if currCooldown >= cooldown:
 		if Global.numCharging < maxMinions:
 			currCooldown = 0;
-			var projectileCoin = load("res://Objects/ChargingBM.tscn").instance()
+			var projectileCoin = load("res://Graphics/ChargingBM.tscn").instance()
 			projectileCoin.global_position = global_position
 			projectileCoin.get_node("Enemy").counter = 100
 			get_parent().add_child(projectileCoin)

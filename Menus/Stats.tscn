@@ -8,6 +8,7 @@ size = 40
 font_data = ExtResource( 2 )
 
 [node name="Stats" type="CanvasLayer"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="HPCash" type="HBoxContainer" parent="."]

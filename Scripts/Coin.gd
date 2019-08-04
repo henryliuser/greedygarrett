@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var parent = get_parent()
-onready var target = parent.get_parent().get_parent().get_node("Player")
+onready var target = parent.get_parent().get_node("Player")
 var velocity = Vector2()
 var counter = 0
 var initialSpeed = Vector2(randi()%100 - randi()%100, randi()%100 - randi()%100)

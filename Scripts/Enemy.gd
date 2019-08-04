@@ -76,7 +76,7 @@ func coinExplode():
 		else:
 			coin = load(coins[3]).instance()
 		coin.global_position = global_position
-		parent.get_parent().add_child(coin)
+		parent.get_parent().get_parent().add_child(coin)
 
 func getHurt(dmg, velocity):
 	health -= dmg

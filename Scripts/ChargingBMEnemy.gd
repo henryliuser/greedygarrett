@@ -1,5 +1,5 @@
 extends KinematicBody2D
-onready var player = get_parent().get_parent().get_node("Player")
+onready var player = get_parent().get_parent().get_parent().get_node("Player")
 onready var targetPos = player.global_position
 onready var direction = (targetPos - self.global_position).normalized()
 onready var parent = get_parent()
@@ -65,7 +65,7 @@ func coinExplode():
 		else:
 			coin = load(coins[3]).instance()
 		coin.global_position = global_position
-		parent.get_parent().add_child(coin)
+		parent.get_parent().get_parent().add_child(coin)
 
 func getHurt(dmg, velocity):
 	health -= dmg

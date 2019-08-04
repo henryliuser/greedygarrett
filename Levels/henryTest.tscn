@@ -1,37 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Levels/henryTest.gd" type="Script" id=1]
-[ext_resource path="res://Objects/BadMan.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Spawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/BadMan.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=4]
 
 [node name="henryTest" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Spawner" parent="." instance=ExtResource( 2 )]
+
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="BadMan" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 1256.34, 355.209 )
 
-[node name="BadMan4" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan4" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 919.068, 167.361 )
 
-[node name="BadMan5" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan5" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 304.292, 771.463 )
 
-[node name="BadMan6" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan6" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 517.756, 688.212 )
 
-[node name="BadMan7" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan7" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 679.988, 602.827 )
 
-[node name="BadMan8" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan8" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 626.622, 856.849 )
 
-[node name="BadMan2" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan2" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 978.837, 856.849 )
 
-[node name="BadMan3" parent="enemies" instance=ExtResource( 2 )]
+[node name="BadMan3" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 291.485, 353.074 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1704.01, 894.724 )
