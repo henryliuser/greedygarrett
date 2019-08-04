@@ -4,6 +4,7 @@ onready var hp = $HPCash/HP
 onready var cash = $HPCash/Cash
 var health = 100
 var money = 0.0
+var armor = 0
 
 #ammo
 onready var ammo = $HPCash/Ammo
@@ -30,13 +31,29 @@ func formatCash():
 
 func addHealth(dmg):
 	health += dmg
+	if health > 100:
+		health = 100
 	hp.text = "HP: " + str(health)
 
 func subtractHealth(dmg):
-	health -= dmg
+	if armor == 0:
+		health -= dmg
+	else:
+		health -= dmg/2
+	subtractArmor(dmg)
 	hp.text = "HP: " + str(health)
 	if health <= 0:
 		Global.gameOver()
+
+func subtractArmor(dmg):
+	armor -= dmg
+	if armor < 0:
+		armor = 0
+
+func addArmor(dmg):
+	armor += dmg
+	if armor > 100:
+		armor = 100
 
 #we need to update on weapon switch too
 func updateAmmo(type):
