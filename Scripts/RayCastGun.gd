@@ -1,9 +1,10 @@
-extends Sprite
+extends Node2D
 
 export var cooldown = 2
 export var damage = 150
 onready var laser = $lazor
 onready var player = get_parent().get_parent()
+onready var bolt = $bolt
 var onCooldown = false
 var cdTimer = 0
 
@@ -16,12 +17,14 @@ func _physics_process(delta):
 		if cdTimer >= 120:
 			cdTimer = 0
 			onCooldown = false
+			bolt.position.x -= 20
 	elif Input.is_action_just_pressed("shoot") and not onCooldown:
 		if Stats.ammunition[1] > 0:
 			shoot()
 
 func shoot():
 	Stats.updateAmmo(1)
+	bolt.position.x += 20
 	onCooldown = true
 	var x = player.rotation-PI/2
 	player.position -= Vector2(cos(x),sin(x))*40
