@@ -1,4 +1,6 @@
 extends Sprite
+var current = false
+var num = 2
 export var projectileSpeed = 3000
 onready var bullets = get_parent().get_parent().get_parent()
 onready var open = $opening
@@ -12,15 +14,18 @@ func _ready():
 	randomize()
 
 func _physics_process(delta):
-	if onCooldown:
-		cdTimer += 1
-		if cdTimer >= 120:
-			cdTimer = 0
-			onCooldown = false
-	elif Input.is_action_just_pressed("shoot") and not onCooldown:
-		shoot()
+	if current:
+		if onCooldown:
+			cdTimer += 1
+			if cdTimer >= 120:
+				cdTimer = 0
+				onCooldown = false
+		elif Input.is_action_just_pressed("shoot") and not onCooldown:
+			if Stats.ammunition[2] > 0:
+				shoot()
 
 func shoot(): #SCREENSHAKE
+	Stats.updateAmmo(2)
 	onCooldown = true
 	position.y += 24
 	var scatter = 0.0

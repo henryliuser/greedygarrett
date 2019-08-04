@@ -1,53 +1,50 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Objects/Bazooka.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/BadMan.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/BadMan.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Weapons.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
 
 [node name="henryTest" type="Node2D"]
 
+[node name="BadMan" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1256.34, 355.209 )
+
+[node name="BadMan4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 919.068, 167.361 )
+
+[node name="BadMan5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304.292, 771.463 )
+
+[node name="BadMan6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 517.756, 688.212 )
+
+[node name="BadMan7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 679.988, 602.827 )
+
+[node name="BadMan8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 626.622, 856.849 )
+
+[node name="BadMan2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 978.837, 856.849 )
+
+[node name="BadMan3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 291.485, 353.074 )
+
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 1633.01, 965.5 )
-script = ExtResource( 1 )
+position = Vector2( 1604.68, 863.622 )
+script = ExtResource( 2 )
 
 [node name="icon" type="Sprite" parent="Player"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="icon2" type="Sprite" parent="Player"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
 
-[node name="Weapons" type="Node2D" parent="Player"]
-position = Vector2( 101.31, -46.3633 )
-
-[node name="Bazooka" parent="Player/Weapons" instance=ExtResource( 3 )]
-
-[node name="BadMan" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1256.34, 355.209 )
-
-[node name="BadMan4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 919.068, 167.361 )
-
-[node name="BadMan5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 304.292, 771.463 )
-
-[node name="BadMan6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 517.756, 688.212 )
-
-[node name="BadMan7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 679.988, 602.827 )
-
-[node name="BadMan8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 626.622, 856.849 )
-
-[node name="BadMan2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 978.837, 856.849 )
-
-[node name="BadMan3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 291.485, 353.074 )
+[node name="Weapons" parent="Player" instance=ExtResource( 4 )]

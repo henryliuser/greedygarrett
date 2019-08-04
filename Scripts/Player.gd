@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var movementSpeed = 1000
-
 var hitstun = 0
 const stun = 18
 var hitVelo = Vector2()

@@ -1,12 +1,15 @@
 extends Sprite
 export var projectileSpeed = 3000
+var num = 0
+var current = false
 onready var bullets = get_parent().get_parent().get_parent()
 onready var open = $opening
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("shoot"):
-		if Stats.ammunition[0] > 0:
-			shoot()
+	if current:
+		if Input.is_action_just_pressed("shoot"):
+			if Stats.ammunition[0] > 0:
+				shoot()
 		
 
 func shoot(): #SCREENSHAKE

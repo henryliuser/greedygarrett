@@ -9,8 +9,8 @@ var armor = 0
 #ammo
 onready var ammo = $HPCash/Ammo
 var currentWeapon = 0
-var ammunition = [10,10,10,10,100] # [bullets,rays,shells,rockets,energy]
-						#	       [   0   ,  1 ,   2  ,   3   ,  4   ]
+var ammunition = [10,10,10,10,100,NAN] # [bullets,rays,shells,rockets,energy,NAN]
+						#	         [   0   ,  1 ,   2  ,   3   ,  4   , 5 ]
 func _ready():
 	formatCash()
 	hp.text = "HP: " + str(health)
@@ -59,3 +59,6 @@ func addArmor(dmg):
 func updateAmmo(type):
 	ammunition[type] -= 1
 	ammo.text = "Ammo: " + str(ammunition[type])
+
+func changeWeapon(num):
+	ammo.text = "Ammo: " + str(ammunition[num])
