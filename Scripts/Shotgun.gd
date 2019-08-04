@@ -25,6 +25,7 @@ func _physics_process(delta):
 				shoot()
 
 func shoot(): #SCREENSHAKE
+	$AudioStreamPlayer2D.play()
 	Stats.updateAmmo(2)
 	onCooldown = true
 	position.y += 24
