@@ -13,6 +13,7 @@ func _physics_process(delta):
 		
 
 func shoot(): #SCREENSHAKE
+	$AudioStreamPlayer2D.play()
 	Stats.updateAmmo(0)
 	position.y += 16
 	var bull = load("res://Objects/Projectile.tscn").instance()
