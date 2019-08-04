@@ -5,7 +5,7 @@ onready var open = $opening
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
-		if Stats.ammunition[1] > 0:
+		if Stats.ammunition[0] > 0:
 			shoot()
 		
 

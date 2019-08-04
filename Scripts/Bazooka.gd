@@ -18,9 +18,11 @@ func _physics_process(delta):
 			cdTimer = 0
 			onCooldown = false
 	elif Input.is_action_just_pressed("shoot") and not onCooldown:
-		shoot()
+		if Stats.ammunition[3] > 0:
+			shoot()
 
 func shoot(): #SCREENSHAKE
+	Stats.updateAmmo(3)
 	onCooldown = true
 	position.y += 24
 	var bull = load("res://Objects/BazookaProjectile.tscn").instance()

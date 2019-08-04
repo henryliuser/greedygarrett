@@ -12,4 +12,4 @@ func _on_Explosion2_body_entered(body):
 
 func _on_OuterExplosion_body_entered(body):
 	if body.has_method("getHurt"):
-		body.getHurt( damage, (body.global_position - global_position).normalized() * 8000 )
+		body.getHurt( damage, (body.global_position - global_position).normalized() * 3000 )
