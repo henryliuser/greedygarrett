@@ -17,12 +17,14 @@ func _physics_process(delta):
 			cdTimer = 0
 			onCooldown = false
 	elif Input.is_action_just_pressed("shoot") and not onCooldown:
-		shoot()
+		if Stats.ammunition[1] > 0:
+			shoot()
 
 func shoot():
+	Stats.updateAmmo(1)
 	onCooldown = true
-	var x = player.rotation+PI/2
-	player.move_and_slide(Vector2(cos(x),sin(x))*4000)
+	var x = player.rotation-PI/2
+	player.position -= Vector2(cos(x),sin(x))*40
 	position.y += 35
 	if laser.is_colliding():
 		var obj = laser.get_collider()

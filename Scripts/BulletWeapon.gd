@@ -4,11 +4,13 @@ onready var bullets = get_parent().get_parent().get_parent()
 onready var open = $opening
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("altShoot") or Input.is_action_just_pressed("shoot"):
-		shoot()
+	if Input.is_action_just_pressed("shoot"):
+		if Stats.ammunition[1] > 0:
+			shoot()
 		
 
 func shoot(): #SCREENSHAKE
+	Stats.updateAmmo(0)
 	position.y += 16
 	var bull = load("res://Objects/Projectile.tscn").instance()
 	var rot = get_parent().get_parent().rotation - PI/2

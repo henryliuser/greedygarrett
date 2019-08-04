@@ -6,7 +6,7 @@
 
 [node name="Dime" type="Sprite"]
 modulate = Color( 0.803922, 0.619608, 0.121569, 1 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
