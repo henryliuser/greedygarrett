@@ -11,17 +11,17 @@ func isEnemy():
 	pass
 
 func move(delta):
-	if counter <= 180:
-		parent.global_position += (targetPos - self.global_position).normalized() * delta * 1200
-		counter += 1
+	if abs(targetPos.x - global_position.x) < 50 and abs(targetPos.y - global_position.y) < 50:
+		counter+= 1
+		if counter >= 100:
+			counter = 0
+			targetPos = player.global_position
+			direction = (targetPos - self.global_position).normalized()
 	else:
-		counter = 0
-		targetPos = player.global_position
-		direction = (targetPos - self.global_position).normalized()
-		
+		parent.global_position += (targetPos - self.global_position).normalized() * delta * 1200
 
 
-func _process(delta):
+func _physics_process(delta):
 	move(delta)
 
 
