@@ -48,4 +48,8 @@ func getHit(dmg):
 	
 func getMoney(denom):
 	Stats.addFunds(denom)
-		
+
+func getSpeed(speed):
+	movementSpeed += speed
+	if movementSpeed > 1500: #max movespeed
+		movementSpeed = 1500
