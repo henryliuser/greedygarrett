@@ -81,3 +81,8 @@ func getHurt(dmg, velocity):
 
 func _on_hitbox_body_exited(body):
 	pass # Replace with function body.
+
+func _on_hitbox_body_entered(body):
+	if body.has_method("isPlayer"):
+		var x = parent.rotation-PI/2
+		body.getHit(10, Vector2(cos(x),sin(x))*5000 )
