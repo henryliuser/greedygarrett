@@ -1,5 +1,5 @@
 extends Node2D
-var weapons = get_children()
+onready var weapons = get_children()
 var currentWeapon = 0
 
 func _ready():

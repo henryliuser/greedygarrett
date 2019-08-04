@@ -1,13 +1,14 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var spawned = "res://Objects/BadMan.tscn"
+export var numberToSpawn = 4
+export var delay = 300
+var currTime = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	currTime += 1
+	if currTime >= delay:
+		var enemy = load(spawned).instance()
+		enemy.global_position = global_position
+		get_parent().add_child(enemy)
+	
