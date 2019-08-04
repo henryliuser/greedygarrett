@@ -20,10 +20,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Weapons" type="Node2D" parent="."]
-position = Vector2( 101.31, -46.3633 )
-
-[node name="Knife" parent="Weapons" instance=ExtResource( 3 )]
+[node name="Weapons" parent="." instance=ExtResource( 3 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )

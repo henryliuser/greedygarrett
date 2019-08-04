@@ -1,5 +1,6 @@
 extends Node2D
-
+var current = false
+var num = 1
 export var cooldown = 2
 export var damage = 150
 onready var laser = $lazor
@@ -12,15 +13,16 @@ func _ready():
 	laser.enabled = true
 
 func _physics_process(delta):
-	if onCooldown:
-		cdTimer += 1
-		if cdTimer >= 120:
-			cdTimer = 0
-			onCooldown = false
-			bolt.position.x -= 20
-	elif Input.is_action_just_pressed("shoot") and not onCooldown:
-		if Stats.ammunition[1] > 0:
-			shoot()
+	if current:
+		if onCooldown:
+			cdTimer += 1
+			if cdTimer >= 120:
+				cdTimer = 0
+				onCooldown = false
+				bolt.position.x -= 20
+		elif Input.is_action_just_pressed("shoot") and not onCooldown:
+			if Stats.ammunition[1] > 0:
+				shoot()
 
 func shoot():
 	$AudioStreamPlayer2D.play()
