@@ -5,6 +5,12 @@ onready var cash = $HPCash/Cash
 var health = 100
 var money = 0.9
 
+#ammo
+var bullets = 10
+var shells = 0
+var rays = 0
+var rockets = 0
+
 func _ready():
 	formatCash()
 	hp.text = "HP: " + str(health)
