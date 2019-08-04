@@ -25,6 +25,7 @@ func _physics_process(delta):
 				shoot()
 
 func shoot():
+	$AudioStreamPlayer2D.play()
 	Stats.updateAmmo(1)
 	bolt.position.x += 20
 	onCooldown = true

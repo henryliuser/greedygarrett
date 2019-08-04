@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/RayCastGun.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/sniper.wav" type="AudioStream" id=3]
 
 [node name="Sniper" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,7 +21,7 @@ texture = ExtResource( 2 )
 
 [node name="icon3" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -3.05176e-05, -129.113 )
+position = Vector2( -3.05176e-005, -129.113 )
 scale = Vector2( 0.201028, 0.931999 )
 texture = ExtResource( 2 )
 
@@ -36,3 +37,6 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -189.546 )
 scale = Vector2( 0.4, 1 )
 cast_to = Vector2( 0, -2000 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

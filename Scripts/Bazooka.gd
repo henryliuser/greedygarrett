@@ -27,6 +27,7 @@ func _physics_process(delta):
 func shoot(): #SCREENSHAKE
 	Stats.updateAmmo(3)
 	onCooldown = true
+	$AudioStreamPlayer2D.play()
 	position.y += 24
 	var bull = load("res://Objects/BazookaProjectile.tscn").instance()
 	var rot = player.rotation - PI/2
